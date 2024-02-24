@@ -6,6 +6,10 @@ import CartContext from '../store/CartContext.jsx';
 
 export const Header = () => {
   const cartCtx = useContext(CartContext);
+  const totalcartItems = cartCtx.items.reduce((totalNumberOfItems, item)=>{
+    return totalNumberOfItems + item.quantity;
+  },0);
+
   return (
     <header id="main-header">
       <div id="title">
@@ -13,7 +17,7 @@ export const Header = () => {
         <h1>Food Order</h1>
       </div>
       <nav>
-        <Button textOnly >Cart ({cartCtx.items.length})</Button>
+        <Button textOnly >Cart ({totalcartItems})</Button>
       </nav>
     </header>
   )
