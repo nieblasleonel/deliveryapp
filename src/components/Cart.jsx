@@ -25,7 +25,7 @@ export const Cart = () => {
     <Modal className='cart' open={userProgressCtx.progress === 'cart'}>
         <h2>Your Cart</h2>
         <ul>
-          {cartCtx.items.map(item=><li key={item.id}>
+          {cartCtx.items.map(item=>
             <CartItem 
               key={item.id} 
               name={item.name} 
@@ -34,12 +34,13 @@ export const Cart = () => {
               onIncrease={()=>cartCtx.addItem(item)}
               onDecrease={()=>cartCtx.removeItem(item.id)}
             />
-          </li>)}
+          )}
         </ul>
         <p className='cart-total'>{currencyFormatter.format(cartTotal)}</p>
         <p className='modal-actions'>
             <Button textOnly onClick={handleCloseCart}>Close</Button>
-            <Button>Go to CheckOut</Button>
+            {cartCtx.items.length > 0 && (<Button>Go to CheckOut</Button>)}
+            
         </p>
     </Modal>
   )
