@@ -248,6 +248,12 @@ h1 {
 .modal::backdrop {
   background-color: rgba(0, 0, 0, 0.55);
 }
+.error{
+  color: #D8000C;
+  background-color: #FFBABA;
+  text-align: center;
+  padding: 1px;
+}
 
 @keyframes fade-slide-up {
   from {
